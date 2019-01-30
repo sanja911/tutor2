@@ -1,0 +1,38 @@
+﻿
+/* =============================================================
+   GENERAL STYLES
+ ============================================================ */
+body {
+    font-family: 'Open Sans', sans-serif;
+   
+}
+.pad-top {
+    padding-top:60px;
+}
+.text-center {
+    text-align:center;
+}
+
+.pad-img {
+    padding:5px;
+}
+/*TO MAKE HEADING TECT COLORED */
+h2,.h2 {
+    padding:25px;
+    color: #F00;
+}
+
+/*TO CREATE SPACE BETWEEN ROW*/
+.pad-row {
+    padding-top:20px;
+    padding-bottom:20px; 
+}
+
+/*TO MAKING NAV BAR LINKS WHITE COLORED */
+.navbar-inverse .navbar-nav > li > a {
+color: #FFF;
+}
+
+.navbar-inverse .navbar-brand {
+color: #FFF;
+}
