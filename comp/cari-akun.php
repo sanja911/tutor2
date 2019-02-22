@@ -29,7 +29,7 @@
           $mapel       = $_SESSION['session_pencarian'];
           }
   
-      $query = mysql_query("SELECT * FROM user LEFT join kriteria on user.id_user=kriteria.id_user LEFT JOIN prestasi on kriteria.id_user=prestasi.id_user LEFT JOIN ambil_mapel on prestasi.id_user=ambil_mapel.id_user LEFT JOIN kelas on ambil_mapel.id_user=kelas.id_tutor where user.id_user like 'T%' and kriteria.jenis_kel='$jenis_kel' OR kriteria.umur between $umur_min and $umur_max OR prestasi.prestasi='$prestasi' OR prestasi.lulusan='$lulusan' OR prestasi.universitas='$universitas' OR prestasi.qualifikasi='$qualifikasi' and ambil_mapel.mapel='$mapel'");
+      $query = mysql_query("SELECT * FROM user LEFT join kriteria on user.id_user=kriteria.id_user LEFT JOIN prestasi on kriteria.id_user=prestasi.id_user LEFT JOIN ambil_mapel on prestasi.id_user=ambil_mapel.id_user LEFT JOIN kelas on ambil_mapel.id_user=kelas.id_tutor where user.id_user like 'T%' and kriteria.jenis_kel='$jenis_kel' AND kriteria.umur between $umur_min and $umur_max AND prestasi.prestasi='$prestasi' AND prestasi.lulusan='$lulusan' AND prestasi.universitas='$universitas' AND prestasi.qualifikasi='$qualifikasi' AND ambil_mapel.mapel='$mapel'");
      
           ?>
           <table class="table table-bordered table-striped">

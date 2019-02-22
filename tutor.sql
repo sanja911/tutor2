@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 30 Jan 2019 pada 12.54
+-- Generation Time: 22 Feb 2019 pada 06.50
 -- Versi Server: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -64,9 +64,6 @@ CREATE TABLE `ambil_tutor` (
 --
 
 INSERT INTO `ambil_tutor` (`id`, `id_user`, `id_tutor`, `id_mapel`, `id_kelas`) VALUES
-('0001', 'U001', 'T001', 1, ''),
-('0003', 'U001', 'T001', 2, ''),
-('0004', 'U001', 'T002', 2, 'BASDA1'),
 ('0005', 'U003', 'T001', 1, 'DM1'),
 ('0006', 'U002', 'T001', 1, 'DM1');
 
@@ -89,8 +86,6 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`id`, `id_kelas`, `id_tutor`, `id_mapel`, `kuota`) VALUES
-('0002', 'BASDA1', 'T002', '2', 20),
-('0004', 'BASDA2', 'T003', '2', 22),
 ('0003', 'DM1', 'T001', '1', 2);
 
 -- --------------------------------------------------------
@@ -137,6 +132,29 @@ CREATE TABLE `mapel` (
 INSERT INTO `mapel` (`id_mapel`, `mapel`) VALUES
 (1, 'Data Mining'),
 (2, 'Basis Data');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `materi`
+--
+
+CREATE TABLE `materi` (
+  `id_materi` varchar(10) NOT NULL,
+  `id_kelas` varchar(20) NOT NULL,
+  `id_mapel` varchar(10) NOT NULL,
+  `id_tutor` varchar(20) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `materi` text NOT NULL,
+  `file` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `materi`
+--
+
+INSERT INTO `materi` (`id_materi`, `id_kelas`, `id_mapel`, `id_tutor`, `judul`, `materi`, `file`) VALUES
+('0001', 'DM1', '1', 'T001', 'Berkarya', '<p>adalah <strong>suatu perjuangan </strong><em>heuristic <span style=\"background-color:#ffff00\">speciess</span></em></p>\r\n', '383-953-1-PB.pdf');
 
 -- --------------------------------------------------------
 
@@ -229,6 +247,12 @@ ALTER TABLE `kriteria`
 --
 ALTER TABLE `mapel`
   ADD PRIMARY KEY (`id_mapel`);
+
+--
+-- Indexes for table `materi`
+--
+ALTER TABLE `materi`
+  ADD PRIMARY KEY (`id_materi`);
 
 --
 -- Indexes for table `user`

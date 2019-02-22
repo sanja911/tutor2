@@ -14,18 +14,18 @@
 	<script src="js/html5shiv.js"></script>
 	<script src="js/respond.min.js"></script>
 	<![endif]-->
-	   <script type="text/javascript" src="../assets/aset/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../assets/aset/plugins/jQuery/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
-    <script type="text/javascript" src="../assets/aset/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="../assets/aset/bootstrap/js/bootstrap.min.js"></script>
     <!-- DataTables -->
-    <script type="text/javascript" src="../assets/aset/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script  type="text/javascript" src="../assets/aset/plugins/datatables/dataTables.bootstrap.min.js"></script>
+  <script type="text/javascript" src="../assets/aset/plugins/datatables/jquery.dataTables.min.js"></script>
+  <script  type="text/javascript" src="../assets/aset/plugins/datatables/dataTables.bootstrap.min.js"></script>
     <!-- SlimScroll -->
-    <script type="text/javascript" src="../assets/aset/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+  <script type="text/javascript" src="../assets/aset/plugins/slimScroll/jquery.slimscroll.min.js"></script>
     <!-- FastClick -->
-    <script src="../assets/aset/plugins/fastclick/fastclick.min.js"></script>
+  <script src="../assets/aset/plugins/fastclick/fastclick.min.js"></script>
     <!-- AdminLTE App -->
-    <script src="../assets/aset/dist/js/app.min.js"></script>
+  <script src="../assets/aset/dist/js/app.min.js"></script>
 	<!-- Daterange Picker -->
 	<script src="../assets/aset/plugins/daterangepicker/moment.min.js"></script>
 	<script src="../assets/aset/plugins/daterangepicker/daterangepicker.js"></script>

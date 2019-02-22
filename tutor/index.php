@@ -28,7 +28,10 @@ $sql = "select * from user where username='$_SESSION[username]'";
 <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
 <link href="../assets/css/datepicker3.css" rel="stylesheet">
 <link href="../assets/css/styles.css" rel="stylesheet">
-<script type="text/javascript" src="clone-form-td.js"></script>     
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	
+<script type="text/javascript" src="clone-form-td.js"></script>  
+
 <script src="../assets/aset/plugins/select2/select2.full.min.js"></script>
 </head>
 <body>
@@ -66,7 +69,6 @@ $sql = "select * from user where username='$_SESSION[username]'";
 			<div class="clear"></div>
 		</div>
 		<div class="divider"></div>
-
 		<ul class="nav menu">
 			<li><a href="index.php"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
       <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
@@ -74,7 +76,7 @@ $sql = "select * from user where username='$_SESSION[username]'";
 				</a>
 				<ul class="children collapse" id="sub-item-1">
 					<li><a class="" href="data.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Mapel
+						<span class="fa fa-arrow-right">&nbsp;</span> Matkul
 					</a></li>
 					<li><a class="" href="kelas.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Kelas
@@ -282,7 +284,7 @@ $sql = "select * from user where username='$_SESSION[username]'";
 				</div>
 			</div><!--/.col-->
 			<div class="col-sm-12">
-				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
+				<p class="back-link">Lumino Theme by <a href="https://www.sanja.com">sanja</a></p>
 			</div>
 		</div><!--/.row-->
 	</div>	<!--/.main-->

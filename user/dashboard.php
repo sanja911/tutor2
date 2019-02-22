@@ -27,7 +27,16 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 					<span class="icon-bar"></span></button>
 				<a class="navbar-brand" href="#"><span>Halaman</span>User</a>
 				<ul class="nav navbar-top-links navbar-right">
-							</div>
+					<li class="dropdown"><a class="dropdown-toggle count-info" data-toggle="dropdown" href="#">
+						<em class="fa fa-envelope"></em><span class="label label-danger">15</span>
+					</a>
+						<ul class="dropdown-menu dropdown-messages">
+							<li>
+								<div class="dropdown-messages-box"><a href="profile.html" class="pull-left">
+									<img alt="image" class="img-circle" src="http://placehold.it/40/30a5ff/fff">
+									</a>
+									
+			</div>
 		</div><!-- /.container-fluid -->
 	</nav>
   <?php
@@ -48,7 +57,18 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 		</div>
 		<ul class="nav menu">
 			<li class="active"><a href="dashboard.php"><em class="fa fa-dashboard">&nbsp;</em> Dashboard</a></li>
-			<li><a href="data.php"><em class="fa fa-calendar">&nbsp;</em> Data</a></li>
+      <li class="parent "><a data-toggle="collapse" href="#sub-item-1">
+      <em class="fa fa-navicon">&nbsp;</em> Data <span data-toggle="collapse" href="#sub-item-1" class="icon pull-right"><em class="fa fa-plus"></em></span>
+				</a>
+				<ul class="children collapse" id="sub-item-1">
+					<li><a class="" href="data.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> Matkul
+					</a></li>
+					<li><a class="" href="kelas.php">
+						<span class="fa fa-arrow-right">&nbsp;</span> Kelas
+					</a></li>
+
+				</ul>
 			<li><a href="user.php"><em class="fa fa-cog">&nbsp;</em> Pengaturan</a></li>
 			<li><a href="logout.php"><em class="fa fa-power-off">&nbsp;</em> Logout</a></li>
 		</ul>
@@ -93,33 +113,34 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
             $query2  = "SELECT * FROM ambil_tutor where id_user='$out[id_user]'";
             $hasil2  = mysql_query($query2);
             $out2 = mysql_fetch_assoc($hasil2);
-            $query = mysql_query("Select * from kriteria CROSS JOIN user CROSS JOIN kelas where kriteria.id_user='$out2[id_tutor]' and user.id_user='$out2[id_tutor]' and kelas.id_tutor='$out2[id_tutor]'");
-            $sql3 = "SELECT count(id_user) AS jumlah FROM prestasi where id_user='$out2[id_tutor]'";
-            $query3 = mysql_query($sql3);
-            $result = mysql_fetch_array($query3);   
+            $query = mysql_query("Select * from user JOIN kriteria ON user.id_user=kriteria.id_user JOIN kelas ON user.id_user=kelas.id_tutor where user.id_user='$out2[id_tutor]'");
         ?>
         <table id="data" class="table table-bordered table-striped table-scalable">
             <thead>
                 <td class="text-center">ID</th>
                 <td class="text-center">Username</th>
                 <td class="text-center">Umur</th>
-                <td class="text-center">Jumlah Prestasi</th>
-                <td class="text-center">Lama Mengajar</th>
+                <td class="text-center">Prestasi</th>
                 <td class="text-center">Alamat</th>
                 <td class="text-center">Kelas</th>
-                <td class="text-center">Terakhir Mengajar</th>
+                <td class="text-center">Lama Mengajar</th>
             </thead>
             <tbody>
-                <?php while($row = mysql_fetch_array($query)) {?>
-                    <tr>
-                        <td class="text-center"><?php echo $row['id_user'] ?></td>
-                        <td class="text-center"><?php echo $row['username'] ?></td>
-                        <td class="text-center"><?php echo $row['umur'] ?></td>
-                        <td class="text-center"><?php echo $result['jumlah'] ?></td>
-                        <td class="text-center"><?php echo $row['lama_mengajar'] ?></td>
-                        <td class="text-center"><?php echo $row['alamat'] ?></td>
-                        <td class="text-center"><?php echo $row['id_kelas'] ?></td>
-                        <td class="text-center"><?php echo $row['akhir'] ?></td>
+                <?php while($row = mysql_fetch_array($query)) {
+                   $sql2 = "SELECT count(prestasi) AS jumlah FROM prestasi where id_user='$out2[id_tutor]'";
+                   $query2 = mysql_query($sql2);
+                   $result = mysql_fetch_array($query2);
+                  ?>
+
+                  <tr>
+                        <td width="10%" class="text-center"><?php echo $row['id_tutor'] ?></td>
+                        <td width="20%" class="text-center"><?php echo $row['username'] ?></td>
+                        <td width="10%" class="text-center"><?php echo $row['umur'] ?></td>
+                        <td width="10%" class="text-center"><?php echo $result['jumlah'] ?></td>
+                        <td width="30%" class="text-center"><?php echo $row['alamat'] ?></td>
+                        <td width="30%" class="text-center"><a href="kelas-view.php?id=<?php $row['id_kelas'];?>"><?php echo $row['id_kelas'] ?></a></td>
+                        <td width="10%" class="text-center"><?php echo $row['lama_mengajar'] ?></td>
+
                     </tr>
             <?php } ?>
             </tbody>

@@ -3,10 +3,9 @@
       <th width="2%">No</th>
       <th width="20%">Nama Kelas</th>
       <th width="30%">Nama Tutor</th>
-      <th width="20%">Mapel</th>
-      <th width="10">Jumlah Siswa </th>
+      <th width="15%">Mapel</th>
       <th width="10%">Kuota</th>
-      <th width="18%">Aksi</th>
+      <th width="40%">Aksi</th>
 
     </tr>
   </thead>
@@ -30,11 +29,10 @@
             <td align="center"><?php echo $ar['id_kelas'];?></td>
             <td align="center"><?php echo $ar['nama_lengkap'];?></td>
             <td align="center"><?php echo $ar['mapel'];?></td>
-            <td align="center"><?php echo $result['jumlah'];?></td>
-            <td align="center"><?php echo $ar['kuota'];?></td>
+            <td align="center"><?php echo $result['jumlah'];?> / <?php echo $ar['kuota'];?></td>
             <?php echo"
             <td align=center>
-            <a href='#' onClick='confirm_delete(\"../comp/hapus.php?id=$ar[id_kelas]\")'><button type='button' class='btn btn-sm btn-danger'>Hapus</button></a>
+            <a href='#' onClick='confirm_delete(\"../comp/hapus-kelas.php?id=$ar[id_kelas]\")'><button type='button' class='btn btn-sm btn-danger'>Hapus</button></a>
             <a href='#' class='open_modal' id='$ar[id_kelas]'><button type='button' class='btn btn-sm btn-info'>Detail</button></a>
             </td>
           </tr>";

@@ -80,7 +80,7 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
   			</div>
   			<div class="profile-usertitle">
   				<div class="profile-usertitle-name"><?php echo $_SESSION['username'];?></div>
-  				<div class="profile-usertitle-status"><span class="indicator label-success"></span>id : <?php echo $out['id_user'];?></div>
+  				<div class="profile-usertitle-status"><span class="indicator label-success"></span>id : <?php echo $jumlah['id_user'];?></div>
   			</div>
   			<div class="clear"></div>
   		</div>
@@ -91,7 +91,7 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 				</a>
 				<ul class="children collapse" id="sub-item-1">
 					<li><a class="" href="data.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Mapel
+						<span class="fa fa-arrow-right">&nbsp;</span> Matkul
 					</a></li>
 					<li><a class="" href="kelas.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Kelas

@@ -22,6 +22,8 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
 <link href="../assets/css/datepicker3.css" rel="stylesheet">
 <link href="../assets/css/styles.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	
 <link rel="stylesheet" href="../assets/css/select2.min.css"/>
 <script type="text/javascript" src="../assets/aset/plugins/datatables/jquery.dataTables.min.js"></script>
 <script  type="text/javascript" src="../assets/aset/plugins/datatables/dataTables.bootstrap.min.js"></script>
@@ -103,7 +105,7 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 				</a>
 				<ul class="children collapse" id="sub-item-1">
 					<li><a class="active" href="data.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Mapel
+						<span class="fa fa-arrow-right">&nbsp;</span> Matkul
 					</a></li>
 					<li><a class="" href="kelas.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Kelas
@@ -161,7 +163,7 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 </div>
 </div>
 <div class="col-sm-12">
-				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
+				<p class="back-link">Lumino Theme by <a href="https://www.sanja.com">sanja</a></p>
 			</div>
 		</div><!--/.row-->
 	</div>	<!--/.main-->

@@ -22,8 +22,12 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 <link href="../assets/css/font-awesome.min.css" rel="stylesheet">
 <link href="../assets/css/datepicker3.css" rel="stylesheet">
 <link href="../assets/css/styles.css" rel="stylesheet">
+<link href="../assets/ckeditor/styles.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+	
 <link rel="stylesheet" href="../assets/css/select2.min.css"/>
 <script type="text/javascript" src="../assets/aset/plugins/datatables/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="../assets/ckeditor/ckeditor.js"></script>
 <script  type="text/javascript" src="../assets/aset/plugins/datatables/dataTables.bootstrap.min.js"></script>
 <script>
    $(document).ready(function() {
@@ -104,7 +108,9 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 
     </div>
 </div>
-
+<?php
+include "modal_materi.php";
+?>
 	<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -139,7 +145,7 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 				</a>
 				<ul class="children collapse" id="sub-item-1">
 					<li><a class="" href="data.php">
-						<span class="fa fa-arrow-right">&nbsp;</span> Mapel
+						<span class="fa fa-arrow-right">&nbsp;</span> Matkul
 					</a></li>
 					<li><a class="active" href="kelas.php">
 						<span class="fa fa-arrow-right">&nbsp;</span> Kelas
@@ -157,7 +163,7 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
       <div class="modal-content" style="margin-top:100px;">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" style="text-align:center;">Apakah Anda Yakin Menghapus Kelas Ini? Semua data yang berhubungan dengan Kelas ini akan dihapus,seperti data murid,dll.</h4>
+          <h4 class="modal-title" style="text-align:center;">Apakah Anda Yakin Menghapus Kelas Ini?</h4>
         </div>
         <div class="modal-footer" style="margin:0px; border-top:0px; text-align:center;">
           <a href="#" class="btn btn-danger" id="delete_link">Delete</a>
@@ -172,7 +178,7 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 				<li><a href="#">
 					<em class="fa fa-home"></em>
 				</a></li>
-				<li class="active">Dashboard</li>
+				<li class="active">Kelas</li>
 			</ol>
 		</div><!--/.row-->
 
@@ -192,11 +198,27 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
                   </table>
     <br></br>
   </div>
-</div>
+  </div>
+<div class="row">
+			<div class="col-md-12">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+              Data Materi
+						<span class="pull-right clickable panel-toggle panel-button-tab-left"><em class="fa fa-toggle-up"></em></span></div>
+					<div class="panel-body">
+    <a href="#"><button class="btn btn-success" type="button" data-target="#myModal2" data-toggle="modal"><i class="fa fa-plus"></i>Tambah Materi</button></a>
+        <br></br>
+    <table id="data2" class="table table-bordered table-striped table-scalable">
+            <?php
+              include "../comp/tbl_materi.php";
+            ?>
+                  </table>
+    <br></br>
+  </div>
 </div>
 </div>
 <div class="col-sm-12">
-				<p class="back-link">Lumino Theme by <a href="https://www.medialoot.com">Medialoot</a></p>
+				<p class="back-link">Lumino Theme by <a href="https://www.sanja.com">sanja</a></p>
 			</div>
 		</div><!--/.row-->
 	</div>	<!--/.main-->
@@ -204,6 +226,8 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
   <script src="../assets/js/bootstrap.min.js"></script>
   <script src="../assets/js/jquery-1.11.2.min.js"></script>
   <script src="../assets/js/select2.min.js"></script>
+  <script src="../assets/js/bootstrap-datepicker.js"></script>
+	<script src="../assets/js/custom.js"></script>
   <script>
   $(document).ready(function () {
   $("#mapel1").select2({
@@ -219,7 +243,25 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 		$(".open_modal").click(function(e) {
 			var m = $(this).attr("id");
 				$.ajax({
-					url: "../comp/modal_detail.php",
+					url: "../comp/detail_kelas.php",
+					type: "GET",
+					data : {id: m,},
+					success: function (ajaxData){
+					$("#edit").html(ajaxData);
+					$("#edit").modal('show',{backdrop: 'true'});
+					}
+				});
+			});
+		});
+	</script>
+  <script type="text/javascript">
+		$(document).ready(function () {
+
+		// Dosen
+		$(".open_modal2").click(function(e) {
+			var m = $(this).attr("id");
+				$.ajax({
+					url: "../comp/detail_materi.php",
 					type: "GET",
 					data : {id: m,},
 					success: function (ajaxData){
@@ -247,6 +289,9 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
     $(function () {
     // Data Table
       $("#data").dataTable({
+    scrollX: true
+  });
+  $("#data2").dataTable({
     scrollX: true
   });
     });
