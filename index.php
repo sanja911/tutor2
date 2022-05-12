@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "/comp/koneksi.php";
+include "comp/koneksi.php";
 if(isset($_SESSION['pesan'])){
  echo $_SESSION['pesan'];
  unset($_SESSION['pesan']);

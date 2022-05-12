@@ -102,12 +102,10 @@ die("Anda bukan tutor");//jika bukan admin jangan lanjut
 
 <body>
 <?php
-		$query  = "SELECT * FROM user where username='$_SESSION[username]'";
-		$hasil  = mysql_query($query);
-		$jumlah = mysql_fetch_assoc($hasil);
-		$query1  = "SELECT * FROM kriteria where id_user='$jumlah[id_user]'";
-		$hasil1  = mysql_query($query1);
-		$jumlah1 = mysql_fetch_assoc($hasil1);
+		$getUsername  = mysqli_query($koneksi, "SELECT * FROM user where username='$_SESSION[username]'");
+		$jumlah = mysqli_fetch_assoc($getUsername);
+		$getKriteria  = mysqli_query($koneksi, "SELECT * FROM kriteria where id_user='$jumlah[id_user]'");
+		$jumlah1 = mysqli_fetch_assoc($getKriteria);
 		?>
     <div id="ModalDel" class="modal fade" role="dialog">
       <div class="modal-dialog">

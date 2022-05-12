@@ -10,10 +10,10 @@ if($_SESSION['akses']!="Tutor"){
 die("Anda bukan tutor");//jika bukan admin jangan lanjut
 }
 $sql = "select * from user where username='$_SESSION[username]'";
-      $hasil = mysql_query($sql);
-      $data  = mysql_fetch_array($hasil);
-      $sql1 = mysql_query("select * from prestasi where id_user='$data[id_user]'");
-      if (mysql_num_rows($sql1) == 0) {
+      $hasil = mysqli_query($koneksi, $sql);
+      $data  = mysqli_fetch_array($hasil);
+      $sql1 = mysqli_query("select * from prestasi where id_user='$data[id_user]'");
+      if (mysqli_num_rows($sql1) == 0) {
 				header("location:prestasi.php");
 			}
 ?>
@@ -35,9 +35,7 @@ $sql = "select * from user where username='$_SESSION[username]'";
 <script src="../assets/aset/plugins/select2/select2.full.min.js"></script>
 </head>
 <body>
-<?php
-      
-			?>
+
   
 <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
 		<div class="container-fluid">
