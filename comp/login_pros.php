@@ -5,9 +5,9 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 $op = $_GET['op'];
 if($op=="in"){
-    $sql = mysql_query("SELECT * FROM user WHERE username='$username' AND password='$password'");
-    if(mysql_num_rows($sql)==1){//jika berhasil akan bernilai 1
-        $qry = mysql_fetch_array($sql);
+    $sql = mysqli_query($conn, "SELECT * FROM user WHERE username='$username' AND password='$password'");
+    if(mysqli_num_rows($sql)==1){//jika berhasil akan bernilai 1
+        $qry = mysqli_fetch_array($sql);
         $_SESSION['username'] = $qry['username'];
         $_SESSION['nama'] = $qry['nama'];
         $_SESSION['akses'] = $qry['akses'];

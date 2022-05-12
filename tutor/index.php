@@ -9,11 +9,10 @@ die("Anda belum login");//jika belum login jangan lanjut..
 if($_SESSION['akses']!="Tutor"){
 die("Anda bukan tutor");//jika bukan admin jangan lanjut
 }
-$sql = "select * from user where username='$_SESSION[username]'";
-      $hasil = mysql_query($sql);
-      $data  = mysql_fetch_array($hasil);
-      $sql1 = mysql_query("select * from prestasi where id_user='$data[id_user]'");
-      if (mysql_num_rows($sql1) == 0) {
+$getUser = mysqli_query($conn, "select * from user where username='$_SESSION[username]'");
+      $data  = mysqli_fetch_array($getUser);
+      $sql1 = mysqli_query("select * from prestasi where id_user='$data[id_user]'");
+      if (mysqli_num_rows($sql1) == 0) {
 				header("location:prestasi.php");
 			}
 ?>
